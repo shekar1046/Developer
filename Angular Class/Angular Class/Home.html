@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+  <div align="center" ng-init="page='register.html'">
+      <a href="" ng-click="page='login.html'">Login</a>
+      <span> | </span>
+      <a href="" ng-click="page='register.html'">Register</a>
+  </div>
+  <br>
+  <div align="center">
+      <div ng-include="page">
+
+      </div>
+  </div>
+</body>
+</html>

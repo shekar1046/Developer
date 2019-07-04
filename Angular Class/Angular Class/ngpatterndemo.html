@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+  <form name="frmRegister">
+      Password:
+      <input type="text" name="txtPwd" ng-model="txtPwd" ng-pattern="/(?=.*[A-Z])\w{4,10}/">
+      <span ng-show="frmRegister.txtPwd.$invalid">At least 1 uppercase letter</span>
+      <br>
+      Mobile :
+      <input type="text"  name="txtMobile" ng-model="txtMobile" ng-pattern="/\+91[0-9]{10}/">
+      <span ng-show="frmRegister.txtMobile.$invalid">Invalid Mobile</span>
+  </form>
+</body>
+</html>

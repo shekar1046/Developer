@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope, $http) {
+             $scope.products=[];
+
+             $http.get('/products')
+                 .then(function (response) {
+                     $scope.products=response.data;
+                 })
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <h2 align="center"> Products Index</h2>
+  <table border="2" width="400" align="center">
+      <th>Name</th>
+      <th>Price</th>
+      <tr ng-repeat="item in products">
+          <td>{{item.Name}}</td>
+          <td>{{item.Price}}</td>
+      </tr>
+  </table>
+</body>
+</html>

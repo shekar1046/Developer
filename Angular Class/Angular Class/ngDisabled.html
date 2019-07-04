@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <form name="frmRegister">
+       <fieldset>
+           <legend>Register</legend>
+           <dl>
+               <dt>User Name</dt>
+               <dd><input name="txtName" ng-model="txtName" type="text" required></dd>
+               <dt>Email</dt>
+               <dd><input name="txtEmail" ng-model="txtEmail" type="email" required></dd>
+           </dl>
+           <br>
+           <button ng-disabled="frmRegister.$invalid">Register</button>
+       </fieldset>
+   </form>
+</body>
+</html>

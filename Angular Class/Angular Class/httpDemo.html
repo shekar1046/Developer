@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+         dt{
+             font-weight: bold;
+         }
+     </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope, $http) {
+             $http({
+                 method:'get',
+                 url:'api/products.xml'
+             })
+                 .then(function onSuccess (response) {
+                     $scope.status =response.status;
+                     $scope.statusText=response.statusText;
+                     $scope.data=response.data;
+
+                 },function onFailure (response) {
+                     $scope.status =response.status;
+                     $scope.statusText=response.statusText;
+                     $scope.data=response.data;
+                 })
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <dl>
+        <dt>Status Code </dt>
+        <dd>{{status}}</dd>
+        <dt>Status Text</dt>
+        <dd>{{statusText}}</dd>
+        <dt>Data</dt>
+        <dd>
+            <pre>
+                {{data}}
+            </pre>
+        </dd>
+    </dl>
+</body>
+</html>

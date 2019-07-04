@@ -1,0 +1,12 @@
+<div>
+    <table border="1" width="400" align="center">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Preview</th>
+        <tr ng-repeat="item in products">
+            <td>{{item.Name}}</td>
+            <td>{{item.Price}}</td>
+            <td><img ng-src="{{item.Photo}}" width="70" height="70"> </td>
+        </tr>
+    </table>
+</div>

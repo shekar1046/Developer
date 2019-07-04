@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.directive('ngProduct',function () {
+            var directive={};
+            directive.template="<dl><dt>Name</dt><dd>{{product.Name}}</dd><dt>Price</dt><dd>{{product.Price}}</dd></dl>";
+            directive.restrict="AE";
+            directive.scope={
+                "product":"=product"
+            }
+            return directive;
+        })
+        app.controller('HomeController',function ($scope) {
+            $scope.tv={
+                Name:"Samsung TV",
+                Price:45000.53
+            };
+            $scope.shoe={
+                Name:"Nike Shoe",
+                Price:5300.23
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+      <ng-product product="tv">
+
+      </ng-product>
+      <ng-product product="shoe">
+
+      </ng-product>
+</body>
+</html>

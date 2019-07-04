@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.txtName="";
+            $scope.txtPrice="";
+            $scope.txtMfd="";
+            $scope.stock="";
+            $scope.txtQty="";
+            $scope.lstCity="";
+            $scope.DetailsVisible=false;
+            $scope.RegisterVisible=true;
+
+            $scope.Register =function () {
+                $scope.RegisterVisible=false;
+                $scope.DetailsVisible=true;
+
+                $scope.name=$scope.txtName;
+                $scope.price=$scope.txtPrice;
+                $scope.mfd=$scope.txtMfd;
+                $scope.qty=$scope.txtQty;
+                $scope.inStock=$scope.stock;
+                $scope.city=$scope.lstCity;
+                $scope.amount=$scope.price*$scope.qty;
+
+            }
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+               <fieldset ng-show="RegisterVisible">
+                   <legend>Register Product</legend>
+                   <dl>
+                       <dt>Product Name</dt>
+                       <dd><input type="text" ng-model="txtName"></dd>
+                       <dt>Price</dt>
+                       <dd><input type="text" ng-model="txtPrice"></dd>
+                       <dt>Quantity</dt>
+                       <dd><input type="number" min="1" max="5" ng-model="txtQty"> </dd>
+                       <dt>Manufactured</dt>
+                       <dd><input type="date" ng-model="txtMfd"></dd>
+                       <dt>Is In Stock</dt>
+                       <dd>
+                           <input type="radio" name="stock" value="Available" ng-model="stock"> Yes
+                           <input type="radio" name="stock" value="Out of Stock" ng-model="stock"> No
+                       </dd>
+                       <dt>Shipped To</dt>
+                       <dd>
+                           <select ng-model="lstCity">
+                               <option value="Delhi">Delhi</option>
+                               <option value="Hyd">Hyderabad</option>
+                               <option value="Chennai">Chennai</option>
+                           </select>
+                       </dd>
+                   </dl>
+                   <br>
+                   <button ng-click="Register()">Register</button>
+               </fieldset>
+               <br>
+               <fieldset ng-show="DetailsVisible">
+                   <legend>Product Details</legend>
+                   <dl>
+                       <dt>Name</dt>
+                       <dd>{{name}}</dd>
+                       <dt>Price</dt>
+                       <dd ng-bind="price"></dd>
+                       <dt>Quantity</dt>
+                       <dd>{{qty}}</dd>
+                       <dt>Manufactured</dt>
+                       <dd>{{mfd |date}}</dd>
+                       <dt>Is In Stock</dt>
+                       <dd ng-bind="inStock"></dd>
+                       <dt>Shipped To</dt>
+                       <dd>{{city}}</dd>
+                       <dt>Total Amount</dt>
+                       <dd>{{amount}}</dd>
+                   </dl>
+                   <br>
+                   <a href="modelDemo.html">Register</a>
+               </fieldset>
+
+</body>
+</html>

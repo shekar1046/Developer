@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script>
+        var app=angular.module('DemoApp',['ngRoute']);
+        app.config(function ($routeProvider) {
+             $routeProvider
+                 .when('/register',{
+                     templateUrl:'register.html'
+                 })
+        })
+        app.controller('HomeController',function ($scope, $http) {
+             $scope.products=[];
+             function GetDetails() {
+                $http.get('/products')
+                    .then(function (response) {
+                        $scope.products=response.data;
+                    })
+            }
+            GetDetails();
+
+            $scope.RegisterProduct=function (product) {
+                $http.post('/addProduct',product);
+                alert('Record Inserted');
+                GetDetails();
+            }
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <h2 align="center">Products Index</h2>
+  <table width="400" border="1" align="center">
+      <th>Product Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Manufactured</th>
+      <tr ng-repeat="item in products">
+          <td>{{item.ProductId}}</td>
+          <td>{{item.Name}}</td>
+          <td>{{item.Price | currency:'&#8377;':2}}</td>
+          <td>{{item.Mfd| date}}</td>
+      </tr>
+  </table>
+  <br>
+  <div align="center">
+      <a href="#!register">Add New Product</a>
+  </div>
+  <div>
+      <ng-view></ng-view>
+  </div>
+</body>
+</html>

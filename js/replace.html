@@ -1,0 +1,16 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button onclick="myFunction()">try it</button>
+        <p id="demo">shekar is best</p>
+        <script>
+        function myFunction(){
+            var str=document.getElementById("demo").innerHTML;
+            var txt=str.replace("best", "waste");
+            document.getElementById("demo").innerHTML=txt;
+        }
+        </script>
+    </body>
+</html>

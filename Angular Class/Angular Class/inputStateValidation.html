@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <form name="frmHome">
+        <fieldset>
+            <legend>Register User </legend>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" name="txtName" ng-model="txtName" required> </dd>
+            </dl>
+        </fieldset>
+        <br>
+       <fieldset>
+           <legend>Input State Validation Services</legend>
+           <dl>
+               <dt>Name Field Not yet Modified - Pristine</dt>
+               <dd>{{frmHome.txtName.$pristine}}</dd>
+               <dt>Name field Modified - Dirty</dt>
+               <dd>{{frmHome.txtName.$dirty}}</dd>
+               <dt>Name field Invalid</dt>
+               <dd>{{frmHome.txtName.$invalid}}</dd>
+               <dt>Name Field Valid</dt>
+               <dd>{{frmHome.txtName.$valid}}</dd>
+               <dt>Name field Touched</dt>
+               <dd>{{frmHome.txtName.$touched}}</dd>
+               <dt>Name field Untouched</dt>
+               <dd>{{frmHome.txtName.$untouched}}</dd>
+               <dt>Name Field Required Error</dt>
+               <dd><span ng-if="frmHome.txtName.$error.required">Name Required</span></dd>
+           </dl>
+       </fieldset>
+   </form>
+</body>
+</html>

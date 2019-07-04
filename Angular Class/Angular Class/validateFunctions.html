@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[])
+        app.controller('HomeController',function ($scope) {
+                  $scope.txtEmail="";
+                  $scope.msg="";
+
+                  $scope.Verify=function () {
+                      $scope.atPos=$scope.txtEmail.indexOf("@");
+                      $scope.dotPos=$scope.txtEmail.lastIndexOf(".");
+
+                      if($scope.atPos<2 && ($scope.dotPos-$scope.atPos)<1)
+                      {
+                          $scope.msg="Invalid Email";
+                      }
+                      else
+                      {
+                          $scope.msg="Email Verified";
+                      }
+
+                  }
+
+            })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <fieldset>
+       <legend>Verify Email</legend>
+       <input type="text" ng-model="txtEmail">
+       <button ng-click="Verify()">Verify</button>
+   </fieldset>
+   <br>
+   <div align="center">{{msg}}</div>
+</body>
+</html>

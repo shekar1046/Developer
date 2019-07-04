@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.lstCountries="";
+            $scope.msg="";
+            $scope.tip="your mobile no.";
+            $scope.flag="";
+            $scope.regExp="";
+
+            $scope.SelectCountry=function () {
+                switch($scope.lstCountries)
+                {
+                    case "India":
+                        $scope.regExp="\\+91[0-9]{10}";
+                        $scope.tip="+91 10 digit no";
+                        $scope.msg="India Calling Code is +91";
+                        $scope.flag="Images/india.jpg";
+                        break;
+                    case "US":
+                        $scope.regExp="\\+1[0-9]{8}";
+                        $scope.tip="+1 8 digit no";
+                        $scope.msg="US Calling Code is +1";
+                        $scope.flag="Images/us.jpg";
+                        break;
+                    case "UK":
+                        $scope.regExp="\\+44[0-9]{6}";
+                        $scope.tip="+44 6 digit no";
+                        $scope.msg="UK Calling Code is +44";
+                        $scope.flag="Images/uk.jpg";
+                        break;
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <form name="frmRegister">
+   <fieldset>
+       <legend>Verify Mobile Number</legend>
+       <dl>
+           <dt>Select Your Country</dt>
+           <dd>
+               <select ng-model="lstCountries" ng-change="SelectCountry()">
+                   <option>India</option>
+                   <option>US</option>
+                   <option>UK</option>
+               </select>
+               <img ng-src="{{flag}}" width="30" height="15">
+           </dd>
+           <dt>Your Mobile</dt>
+           <dd>
+               <input type="text" name="txtMobile" ng-pattern="regExp" ng-model="txtMobile" placeholder="{{tip}}">
+               <span ng-show="frmRegister.txtMobile.$invalid">Invalid Mobile</span>
+           </dd>
+       </dl>
+   </fieldset>
+       <br>
+       <div align="center">
+           {{msg}}
+       </div>
+   </form>
+</body>
+</html>

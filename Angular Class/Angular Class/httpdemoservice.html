@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope, $http) {
+            $http({
+                method:'get',
+                url:'home11.html'
+            })
+                .then(function onSuccess () {
+                    $scope.msg="Page Found";
+
+                },function onFailure () {
+                    $scope.msg="Page Not Found";
+                })
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   {{msg}}
+</body>
+</html>

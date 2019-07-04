@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <p id="demo"></p>
+        <button onclick="myNumber()">number</button>
+        <button onclick="mySort()">alphabet</button>
+        <script>
+        var points=[40, 100, 25, 214, 75];
+        document.getElementById("demo").innerHTML=points;
+        function mySort(){
+            points.sort();
+            document.getElementById("demo").innerHTML=points;
+        }
+        function myNumber(){
+            points.sort(function(a,b){
+                return a-b
+                } )
+                document.getElementById("demo").innerHTML=points;
+        }
+        </script>
+    </body>
+</html>

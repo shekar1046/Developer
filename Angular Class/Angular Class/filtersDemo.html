@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.mfd= new Date('2018/03/22');
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <div ng-init="msg='welcome to filters'">
+       <h2>UpperCase Filter</h2>
+       {{msg |uppercase}}
+   </div>
+   <div ng-init="price=40500">
+       <h2>Number Filter</h2>
+       Price : {{price|number:2}}
+   </div>
+  <div ng-init="cost=50045">
+      <h2>Currency Filter</h2>
+      Cost : {{cost |currency:'':4}}
+  </div>
+  <div>
+      <h2>Date Filter</h2>
+      {{mfd | date:'d MMMM, yyyy'}}
+  </div>
+  <div ng-init="cities=['Delhi','Chennai','Bangalore','Hyd']">
+      City Name : <input type="text" ng-model="search">
+      <ol>
+          <li ng-repeat="item in cities|filter:search">
+              {{item}}
+          </li>
+      </ol>
+  </div>
+</body>
+</html>

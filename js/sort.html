@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <p id="demo"></p>
+        <button onclick="myFruits()">ottu</button>
+        <script>
+        var fruits=["banana","orange","pineapple","muskmelon"];
+        document.getElementById("demo").innerHTML=fruits;
+        function myFruits(){
+          fruits.sort();
+            document.getElementById("demo").innerHTML=fruits;
+        }
+        </script>
+    </body>
+</html>

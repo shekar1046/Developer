@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="Modules/DemoApp.js"></script>
+    <script>
+        var app=angular.module('DIApp',['DemoApp']);
+        app.controller('DIController',function ($scope, basePrice) {
+            $scope.product={
+                Id:1,
+                Name:'Samsung TV',
+                Price:basePrice
+            };
+        })
+    </script>
+</head>
+<body ng-app="DIApp" ng-controller="DIController">
+   <h2>Product Details</h2>
+<dl>
+    <dt>Product Id</dt>
+    <dd>{{product.Id}}</dd>
+    <dt>Name</dt>
+    <dd>{{product.Name}}</dd>
+    <dt>Price</dt>
+    <dd>{{product.Price}}</dd>
+</dl>
+</body>
+</html>

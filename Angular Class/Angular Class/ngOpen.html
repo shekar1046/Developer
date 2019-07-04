@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+    <input type="checkbox" ng-model="show"> Show Ads
+    <br>
+   <dialog ng-open="show" >
+       <img src="Images/pepsi.jpg" width="400" height="100">
+   </dialog>
+   <br>
+   <table width="600" border="2" align="center">
+       <tr height="400">
+           <td width="200">
+               <ol>
+                   <li><input type="checkbox" ng-model="js">Java Script</li>
+                   <li><input type="checkbox" ng-model="ng">Angular Js</li>
+               </ol>
+           </td>
+           <td width="400">
+               <details ng-open="js">
+                   <summary>Java Script</summary>
+                   <ol>
+                       <li>Variables </li>
+                       <li>Data Types</li>
+                       <li>Operators </li>
+                   </ol>
+               </details>
+               <details ng-open="ng">
+                   <summary>Angular Js</summary>
+                   <ol>
+                       <li>Directives</li>
+                       <li>Filters</li>
+                       <li>Modules</li>
+                   </ol>
+               </details>
+           </td>
+       </tr>
+   </table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.products=[
+                {ProductId:1, Name:'Samsung TV', Price:42000.45,Mfd:new Date('2018/02/22'),Photo:'Images/tv.jpg'},
+                {ProductId:2, Name:'Mobile', Price:15000.00,Mfd:new Date('2018/03/18'),Photo:'Images/mobile.jpg'},
+                {ProductId:3, Name:'Nike Shoe', Price:4000.55,Mfd:new Date('2018/04/20'),Photo:'Images/shoe.jpg'},
+                {ProductId:4, Name:'Lee Cooper Boot', Price:2000.45,Mfd:new Date('2018/02/02'), Photo:'Images/shoe1.jpg'},
+
+            ]
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController" >
+  <div>
+      <fieldset>
+          <legend>Search Products</legend>
+          <dl>
+              <dt>Search By Any Field</dt>
+              <dd><input type="text" ng-model="search.$"></dd>
+              <dt>Search By Name</dt>
+              <dd><input type="text" ng-model="search.Name"></dd>
+              <dt>Search By Price</dt>
+              <dd><input type="text" ng-model="search.Price"></dd>
+
+          </dl>
+      </fieldset>
+  </div>
+  <div align="center" ng-repeat="item in products |filter:search">
+      {{item.Name}}
+      <br>
+      <img ng-src="{{item.Photo}}" width="200" height="200">
+      <br>
+      {{item.Price}}
+      <br>
+      {{item.Mfd | date}}
+      <br>
+      <hr size="4" noshade>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="Modules/factoryApp.js"></script>
+    <script>
+        var app=angular.module('DemoApp',['FactoryApp']);
+        app.controller('HomeController',function ($scope, MathFactory,StringFactory) {
+             $scope.product={
+                 Id:1,
+                 Name:'Samsung TV',
+                 Price:45000.43,
+                 Quantity:2
+             };
+             $scope.Amount=MathFactory.TotalAmount($scope.product.Quantity, $scope.product.Price);
+             $scope.name=StringFactory.ChangeCase($scope.product.Name);
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <h2>Product Details</h2>
+  <dl>
+      <dt>Product Id</dt>
+      <dd>{{product.Id}}</dd>
+      <dt>Name</dt>
+      <dd>{{name}}</dd>
+      <dt>Price</dt>
+      <dd>{{product.Price}}</dd>
+      <dt>Quantity</dt>
+      <dd>{{product.Quantity}}</dd>
+      <dt>Total Amount</dt>
+      <dd>{{Amount}}</dd>
+  </dl>
+</body>
+</html>

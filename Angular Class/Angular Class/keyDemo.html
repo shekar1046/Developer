@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+    Your Text :
+    <input type="text" ng-keypress="event=$event" ng-model="txtName">
+    <br>
+    Key Code  : {{event.keyCode}} <br>
+    Char Code : {{event.charCode}} <br>
+    Which     : {{event.which}} <br>
+    Shift Key : {{event.shiftKey}}
+</body>
+</html>

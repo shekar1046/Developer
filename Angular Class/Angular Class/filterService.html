@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope, $filter) {
+            $scope.msg="welcome to angular js";
+            $scope.ChangeCase=function () {
+                $scope.msg= $filter('uppercase')($scope.msg);
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <div align="center">
+      {{msg}}
+      <br>
+      <button ng-click="ChangeCase()">Block Letters</button>
+  </div>
+</body>
+</html>

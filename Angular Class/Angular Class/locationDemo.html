@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        dt{
+            background-color: yellow;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope,$location) {
+
+            $scope.GetDetails=function () {
+                $scope.ip=$location.host();
+                $scope.protocol=$location.protocol();
+                switch($scope.protocol)
+                {
+                    case "http":
+                        $scope.msg="File Access from Http Server, which is an unsafe protocol";
+                        break;
+                    case "file":
+                        $scope.msg="File Accessed for File System - Please access from WebServer";
+
+                }
+                $scope.url=$location.absUrl();
+            }
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <div align="center">
+        <button ng-click="GetDetails()">Get Client Location Details</button>
+    </div>
+    <br>
+   <dl>
+       <dt>Server Name / IP Address</dt>
+       <dd>{{ip}}</dd>
+       <dt>Protocol</dt>
+       <dd>{{protocol}}
+           <br>
+           {{msg}}
+       </dd>
+       <dt>Page URL</dt>
+       <dd>{{url}}</dd>
+   </dl>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function GetName() {
+            document.getElementById("msg").innerHTML= document.getElementById("txtName").value;
+        }
+    </script>
+</head>
+<body>
+   <form>
+       Your name :
+       <input type="text" id="txtName" onkeyup="GetName()">
+       <br>
+       Hello !
+       <span id="msg"></span>
+   </form>
+</body>
+</html>

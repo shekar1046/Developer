@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body onload="showDate()">
+<div>
+
+
+    <button onmouseout="clearDate()" onmouseover="showDate()">Click Me</button>
+    <h1 id="time"></h1>
+</div>
+<script>
+function showDate() {
+    var time=document.getElementById('time');
+    time.innerHTML=Date();
+
+}
+function clearDate() {
+    var time=document.getElementById('time');
+    time.innerHTML='';
+
+}
+</script>
+
+</body>
+</html>

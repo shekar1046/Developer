@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <select ng-model="lstCity" ng-init="count=0" ng-change="count=count+1">
+       <option>Delhi</option>
+       <option>Hyd</option>
+   </select>
+   <br>
+    City Changed {{count}} times.
+</body>
+</html>

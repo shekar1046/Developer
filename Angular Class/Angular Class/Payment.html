@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+             $scope.userDetails={
+                 CardNo:'5555666677778888',
+                 Expiry:'2020',
+                 Cvv:'302'
+             };
+              $scope.msg="";
+
+             $scope.VerifyDetails =function (user) {
+                  if( angular.equals(user,$scope.userDetails))
+                  {
+                      $scope.msg="Verified";
+                  }
+                  else{
+                      $scope.msg="Card Details Mismatch";
+                  }
+             }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <form name="frmHome">
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" name="txtCard" pattern="[0-9]{16}" ng-model="user.CardNo">
+                <span ng-if="frmHome.txtCard.$invalid">Please Enter 16 Digit Number</span>
+            </dd>
+            <dt>Expiry Year</dt>
+            <dd>
+                <select ng-model="user.Expiry">
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+            </dd>
+            <dt>CVV</dt>
+            <dd><input type="text" name="txtCvv" pattern="[0-9]{3}" size="3" ng-model="user.Cvv">
+                 <span ng-if="frmHome.txtCvv.$invalid">Please Enter 3 Digit CVV</span>
+            </dd>
+            <br>
+            <button ng-click="VerifyDetails(user)">Submit</button>
+        </dl>
+    </fieldset>
+   <br>
+   <div align="center">{{msg}}</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+div p{
+    color: red;
+}
+div > p{
+    color: green;
+}
+div + p,p{
+    color: blue;
+}

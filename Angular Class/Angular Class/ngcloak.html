@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+    <input type="checkbox" ng-model="isVisible"> Show/Hide
+    <div ng-if="isVisible">
+        Addition : {{10 + 20 }}
+    </div>
+</body>
+</html>

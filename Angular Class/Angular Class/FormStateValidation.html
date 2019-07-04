@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+  <form name="frmHome">
+    <fieldset>
+        <legend>Register User</legend>
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" ng-model="txtName" required></dd>
+            <dt>Email</dt>
+            <dd><input type="email" ng-model="txtEmail"> </dd>
+        </dl>
+        <br>
+        <button>Submit</button>
+    </fieldset>
+      <br>
+      <fieldset>
+          <legend>Form Validation Services</legend>
+          <dl>
+              <dt>No field modified yet - Pristine</dt>
+              <dd>{{frmHome.$pristine}}</dd>
+              <dt>One of More fields modified - Dirty</dt>
+              <dd>{{frmHome.$dirty}}</dd>
+              <dt>Form is Valid - All fields Valid</dt>
+              <dd>{{frmHome.$valid}}</dd>
+              <dt>Form is Invalid - Any one Field Invalid</dt>
+              <dd>{{frmHome.$invalid}}</dd>
+              <dt>Form Submitted</dt>
+              <dd>{{frmHome.$submitted}}</dd>
+          </dl>
+      </fieldset>
+  </form>
+</body>
+</html>

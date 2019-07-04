@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+
+        app.controller('HomeController',function ($scope) {
+            $scope.SubmitClick=function (product) {
+               $scope.name=product.Name;
+               $scope.price=product.Price;
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <form ng-submit="SubmitClick(product)">
+       <dl>
+           <dt>Name</dt>
+           <dd><input type="text" ng-model="product.Name"> </dd>
+           <dt>Price</dt>
+           <dd><input type="text" ng-model="product.Price"></dd>
+       </dl>
+       <button>Submit</button>
+       <input type="button" value="Submit">
+       <br>
+       <div>
+           <h2>Product Details</h2>
+           Name : {{name |NameFilter}} <br>
+           Price: {{price}}
+       </div>
+   </form>
+</body>
+</html>

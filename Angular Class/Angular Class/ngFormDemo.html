@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <form name="frmHome">
+       <h2>Home Page</h2>
+       <fieldset>
+           <legend>Register</legend>
+           <ng-form name="frmRegister">
+               User Name :
+               <input required type="text" name="txtName" ng-model="txtName">
+               <span ng-if="frmRegister.txtName.$invalid">Name Required</span>
+           </ng-form>
+       </fieldset>
+       <br>
+       <fieldset>
+           <legend>Login</legend>
+           <ng-form name="frmLogin">
+           Email :
+           <input type="email" name="txtEmail" ng-model="txtEmail">
+           <span ng-if="frmLogin.txtEmail.$invalid">Invalid Email</span>
+           </ng-form>
+       </fieldset>
+   </form>
+</body>
+</html>

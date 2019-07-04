@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <div ng-init="cities=['Delhi','Hyd','Chennai','Goa']">
+       Select City :
+       <select ng-model="lstCities" ng-options="item for item in cities">
+
+       </select>
+   </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.products=[
+                {
+                    Name:"Samsung TV",
+                    Price:45000.56,
+                    Photo:"Images/tv.jpg"
+                },
+                {
+                    Name:"Nike Shoe",
+                    Price:3400.52,
+                    Photo:"Images/shoe.jpg"
+                }
+            ];
+            $scope.lstView="gridView.html";
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <div align="center">
+       <select ng-model="lstView">
+           <option value="gridView.html">Grid View</option>
+           <option value="catalogView.html">Catalog</option>
+       </select>
+   </div>
+   <br>
+   <div ng-include="lstView">
+
+   </div>
+</body>
+</html>

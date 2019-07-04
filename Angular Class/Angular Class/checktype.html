@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.cities=['Delhi','Hyd'];
+            $scope.typeofCities=angular.isArray($scope.cities);
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    Cities Array Type :  {{typeofCities}}
+</body>
+</html>

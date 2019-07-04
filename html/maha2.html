@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        calculate =()=>{
+            let billAmt =  document.getElementById("bill").value;
+            let tipPercentage =  document.getElementById("tPercentage").value;
+            let tipAmt =  document.getElementById("tip");
+            let totalAmount =  document.getElementById("total");
+            let out = parseFloat(billAmt)* parseFloat(tipPercentage*.01);
+            let out1 = out.toFixed(2)
+            let totalAmt = parseFloat(billAmt) + out;
+            tipAmt.innerHTML = out1;
+            totalAmount.innerHTML = totalAmt;
+        }
+    </script>
+</head>
+<body>
+<h3>Tip Calculator:</h3>
+<input type="text" id="bill"> <br>
+<input type="text" id="tPercentage"> <br>
+<input  type="button" value="cal"  onclick="calculate()"><br>
+<h2>Tip Amount: <span id="tip"></span></h2>
+<h2>Total Amount : <span id="total"></span></h2>
+</body>
+</html

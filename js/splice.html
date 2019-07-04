@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <button onclick="myFunction()"></button>
+        <script>
+        var bikes=["honda","hero","karizma","apache"];
+        document.getElementById("demo1").innerHTML=bikes;
+        function myFunction(){
+            bikes.splice(1,1,"shine","pulsar");
+            document.getElementById("demo2").innerHTML=bikes;
+        }
+
+        </script>
+    </body>
+</html>

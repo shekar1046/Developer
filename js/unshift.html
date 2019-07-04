@@ -1,0 +1,19 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <button onclick="myFunction()">press</button>
+        <p id="demo"></p>
+        <p id="demo2"></p>
+        
+        <script>
+        var bikes=["honda","hero","suzuki"];
+        document.getElementById("demo").innerHTML=bikes;
+        function myFunction(){
+        bikes.unshift("karizma");
+        document.getElementById("demo2").innerHTML=bikes;
+        }
+        </script>
+    </body>
+</html>

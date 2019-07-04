@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+    <div ng-init="cities=['Delhi','Hyd','Chennai']">
+        <ol>
+            <li ng-repeat="item in cities">
+                {{item}}
+            </li>
+        </ol>
+    </div>
+    <hr>
+    <div ng-init="headings=['JavaScript','JQuery','Angular JS']">
+        <h2 ng-repeat="item in headings">
+            {{item}}
+        </h2>
+    </div>
+    <div ng-init="products=[{Id:1, Name:'TV', Price:45000.52},{Id:2,Name:'Nike Shoe',Price:3400.53}]">
+        <table border="1" width="400">
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <tr ng-repeat="item in products">
+                <td>{{item.Id}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.Price}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

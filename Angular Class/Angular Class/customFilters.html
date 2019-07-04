@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.filter('SentenceCase',function () {
+            return function (str) {
+                var firstLetter=str.charAt(0);
+                var sentence=str.substr(1);
+                var newString=firstLetter.toUpperCase() + sentence.toLowerCase();
+                return newString
+            }
+        })
+        app.controller('HomeController',function ($scope) {
+            $scope.msg="welcome to angular js";
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+     {{msg |SentenceCase}}
+</body>
+</html>

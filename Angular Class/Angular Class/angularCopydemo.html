@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+              $scope.permanentAddress={};
+              $scope.CopyAddress=function (address) {
+                  angular.copy(address,$scope.permanentAddress);
+              }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <fieldset>
+        <legend>Your Present Address</legend>
+        <dl>
+            <dt>City</dt>
+            <dd>
+                <select ng-model="address.city">
+                    <option>Delhi</option>
+                    <option>Hyd</option>
+                </select>
+            </dd>
+            <dt>Postal Code</dt>
+            <dd>
+                <input type="text" ng-model="address.pin">
+            </dd>
+            <br>
+            <button ng-click="CopyAddress(address)">Copy If Permanent Address is Same</button>
+        </dl>
+    </fieldset>
+    <fieldset>
+        <legend>Permanent Address</legend>
+         <dl>
+             <dt>City</dt>
+             <dd><input type="text" ng-model="permanentAddress.city"></dd>
+             <dt>Pin Code</dt>
+             <dd><input type="text" ng-model="permanentAddress.pin"> </dd>
+         </dl>
+    </fieldset>
+</body>
+</html>

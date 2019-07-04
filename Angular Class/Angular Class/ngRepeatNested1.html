@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body ng-app>
+   <div ng-init="topics=[{Title:'JavaScript',Definition:'It is a client side script'},{Title:'Angular JS',Definition:'It is a client side Framework'}]">
+        <dl>
+            <div ng-repeat="topic in topics">
+                <dt>{{topic.Title}}</dt>
+                <dd>{{topic.Definition}}</dd>
+            </div>
+        </dl>
+   </div>
+</body>
+</html>

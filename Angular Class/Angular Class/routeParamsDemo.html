@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script>
+        var app=angular.module('DemoApp',['ngRoute']);
+        app.config(function ($routeProvider) {
+              $routeProvider
+                  .when('/details/:id/:name/:price',{
+                      templateUrl:'details.html'
+                  })
+        })
+        app.controller('HomeController',function ($scope, $routeParams) {
+                $scope.params=$routeParams;
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <a href="#!details/1/tv/45000">Click</a>
+    <br>
+    <div style="border-style: double">
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>

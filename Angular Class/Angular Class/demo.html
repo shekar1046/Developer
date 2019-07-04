@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <script src="scripts/angular.js"></script>
+        <script src="Modules/DemoModule.js"></script>
+        <script src="Controllers/HomeController.js"></script>
+        <script src="Controllers/ContactController.js"></script>
+    </head>
+    <body ng-app="DemoApp">
+        <div ng-controller="HomeController">
+            X = {{x}} <br>
+            Y = {{y}}  <br>
+            Addition = {{result}}
+        </div>
+        <br>
+        <div ng-controller="ContactController">
+            <address>
+                {{address}}
+            </address>
+        </div>
+    </body>
+</html>

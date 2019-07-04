@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input.ng-invalid{
+            background-color:red;
+            color:white;
+        }
+        input.ng-valid{
+            background-color: green;
+            color:white;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+  <form>
+      <dl>
+          <dt>User Name</dt>
+          <dd><input type="text" ng-model="txtName" required ng-minlength="4" ng-maxlength="10"> </dd>
+          <dt>Email</dt>
+          <dd><input type="email" ng-model="txtEmail"> </dd>
+      </dl>
+      <button>Submit</button>
+  </form>
+</body>
+</html>

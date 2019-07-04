@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope, $timeout) {
+              $scope.msg="";
+              function f1() {
+                  $scope.msg="Hello !";
+              }
+              function f2() {
+                  $scope.msg="Welcome to Angular JS";
+              }
+              function f3() {
+                  $scope.msg="How are you?"
+              }
+              var msg1= $timeout(f1,1000);
+              var msg2= $timeout(f2,5000);
+              var msg3 =$timeout(f3,3000);
+
+              $scope.Cancel=function () {
+                  $timeout.cancel(msg3);
+              }
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    {{msg}}
+    <br>
+    <button ng-click="Cancel()">Cancel Msg3</button>
+</body>
+</html>

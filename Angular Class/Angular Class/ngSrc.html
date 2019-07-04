@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+  <div align="center" ng-init="cars=['Cars/1.jpg','Cars/2.jpg','cars/3.jpg','Cars/4.jpg']">
+      <img ng-src="{{cars[count]}}" width="400" height="200" border="1">
+      <br>
+      <button ng-init="count=0" ng-click="count=count-1">Previous</button>
+      <button ng-click="count=count+1">Next</button>
+  </div>
+</body>
+</html>

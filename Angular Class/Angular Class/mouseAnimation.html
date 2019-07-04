@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.Flying = function (event) {
+
+                $scope.effects={
+                    "position":'fixed',
+                    "left":event.clientX + "px",
+                    "top":event.clientY + "px"
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController" ng-mousemove="Flying($event)">
+<div style="height: 1000px;">
+    Move the mouse pointer on to page.
+</div>
+<img ng-src="Images/flag.gif" ng-style="effects">
+</body>
+</html>

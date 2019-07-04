@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .headfootstyle {
+            background-color: darkcyan;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="Modules/DemoModule.js"></script>
+    <script src="Controllers/HomeController.js"></script>
+    <script src="Controllers/AboutController.js"></script>
+    <script src="Controllers/ContactController.js"></script>
+</head>
+<body ng-app="DemoApp" ng-controller="IndexController">
+  <table align="center" width="800" border="2" cellpadding="5" cellspacing="5">
+      <tr class="headfootstyle">
+          <td colspan="2">{{indexMsg}}</td>
+      </tr>
+      <tr height="400">
+          <td width="200">
+              <ul>
+                  <li><a href="#!home">HOME</a></li>
+                  <li><a href="#!about">ABOUT</a></li>
+                  <li><a href="#!contact">CONTACT</a></li>
+              </ul>
+          </td>
+          <td>
+              <ng-view></ng-view>
+          </td>
+      </tr>
+      <tr class="headfootstyle">
+          <td colspan="2">
+              &copy; copyright 2018 <br>
+              Faculty | Courses | Development
+          </td>
+      </tr>
+  </table>
+</body>
+</html>

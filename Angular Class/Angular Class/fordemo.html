@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js">
+    </script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+              var  products=[
+                 {Id:1, Name:'Samsung TV', Price:56000.30},
+                 {Id:2, Name:'Nike Shoe', Price:3400.56}
+             ];
+              $scope.productNames=[];
+              angular.forEach(products,function (values) {
+                  $scope.productNames.push(values.Name);
+              })
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <h2>Products</h2>
+     <ol>
+         <li ng-repeat="item in productNames">
+             {{item}}
+         </li>
+     </ol>
+</body>
+</html>

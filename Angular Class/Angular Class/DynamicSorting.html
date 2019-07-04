@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.products=[
+                {ProductId:1, Name:'Samsung TV', Price:42000.45,Mfd:new Date('2018/02/22')},
+                {ProductId:2, Name:'Mobile', Price:15000.00,Mfd:new Date('2018/03/18')},
+                {ProductId:3, Name:'Nike Shoe', Price:4000.55,Mfd:new Date('2018/04/20')},
+                {ProductId:4, Name:'Lee Cooper Boot', Price:2000.45,Mfd:new Date('2018/02/02')},
+
+            ]
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <fieldset>
+       <legend>Sort Products</legend>
+       <select ng-model="sort">
+           <option value="ProductId">Order By Id</option>
+           <option value="Name">Order By Name</option>
+           <option value="Price">Order By Price</option>
+           <option value="Mfd">Order By Manufactured</option>
+       </select>
+       <input type="checkbox" ng-model="reverse">Reverse
+   </fieldset>
+     <br>
+     <fieldset>
+         <legend>Records Per Page</legend>
+         <input type="number" ng-model="records" min="1" max="{{products.length}}">
+     </fieldset>
+    <br>
+   <table border="1" width="500" align="center">
+       <th>Product Id</th>
+       <th>Name</th>
+       <th>Price</th>
+       <th>Manufactured</th>
+       <tr ng-repeat="item in products | orderBy:sort:reverse |limitTo:records">
+           <td>{{item.ProductId}}</td>
+           <td>{{item.Name | uppercase}}</td>
+           <td>{{item.Price | currency:'&#8377;':2}}</td>
+           <td>{{item.Mfd |date}}</td>
+       </tr>
+   </table>
+   <div>
+       <pre>
+           {{products |json}}
+       </pre>
+   </div>
+</body>
+</html>

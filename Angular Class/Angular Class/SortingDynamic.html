@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+
+            $scope.products=[
+                {ProductId:1, Name:'Samsung TV', Price:42000.45,Mfd:new Date('2018/02/22')},
+                {ProductId:2, Name:'Mobile', Price:15000.00,Mfd:new Date('2018/03/18')},
+                {ProductId:3, Name:'Nike Shoe', Price:4000.55,Mfd:new Date('2018/04/20')},
+                {ProductId:4, Name:'Lee Cooper Boot', Price:2000.45,Mfd:new Date('2018/02/02')},
+
+            ];
+
+            $scope.fieldName="ProductId";
+            $scope.reverse=false;
+
+            $scope.Sort=function (fieldName) {
+                $scope.fieldName=fieldName;
+                $scope.reverse=($scope.fieldName===fieldName)?!$scope.reverse:$scope.reverse;
+            }
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <table border="1" width="400" align="center">
+       <th><a href="" ng-click="Sort('ProductId')">Product Id</a></th>
+       <th><a href="" ng-click="Sort('Name')">Name</a></th>
+       <th><a href="" ng-click="Sort('Price')">Price</a></th>
+       <th><a href="" ng-click="Sort('Mfd')">Manufactured</a></th>
+       <tr ng-repeat="item in products | orderBy:fieldName:reverse">
+           <td>{{item.ProductId}}</td>
+           <td>{{item.Name}}</td>
+           <td>{{item.Price | currency:'&#8377;'}}</td>
+           <td>{{item.Mfd | date}}</td>
+       </tr>
+   </table>
+</body>
+</html>

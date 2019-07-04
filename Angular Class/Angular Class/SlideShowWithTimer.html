@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            transition-timing-function:ease;
+            transition-duration: 2s;
+        }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope, $interval) {
+             $scope.cars=[
+                 {
+                     CarName:'Audi-Q7',
+                     Photo:'Cars/1.jpg'
+                 },
+                 {
+                     CarName:'Range Rower',
+                     Photo:'Cars/3.jpg'
+                 },
+                 {
+                     CarName:'Ferrari',
+                     Photo:'Cars/9.jpg'
+                 }
+             ];
+
+             $scope.count=0;
+             $scope.pic="Cars/1.jpg";
+             $scope.name="";
+
+             function SlideShow() {
+                 $scope.count++;
+                 $scope.pic= $scope.cars[$scope.count].Photo;
+                 $scope.name=$scope.cars[$scope.count].CarName + "(Slide Show Started)";
+             }
+
+             $scope.Play=function () {
+                task=$interval(SlideShow,3000);
+             }
+             $scope.Pause=function () {
+                 $interval.cancel(task);
+                 $scope.name=$scope.cars[$scope.count].CarName + "(Paused)";
+             }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <table border="2" width="600" align="center" cellpadding="5" cellspacing="5">
+      <tr align="center">
+          <td>{{name}}</td>
+      </tr>
+      <tr height="300" align="center">
+          <td><img ng-src="{{pic}}" width="600" height="300" border="1"></td>
+      </tr>
+      <tr align="center">
+         <td>
+             <button ng-click="Play()"><font face="webdings" size="6">4</font></button>
+             <button ng-click="Pause()"><font face="webdings" size="6">;</font></button>
+         </td>
+      </tr>
+  </table>
+</body>
+</html>

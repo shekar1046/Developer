@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[])
+        app.controller('HomeController',function ($scope) {
+            $scope.txtPwd="";
+            $scope.msg="";
+
+            function ShowGrade(min, max, value, low, high) {
+                $scope.min=min;
+                $scope.max=max;
+                $scope.value=value;
+                $scope.low=low;
+                $scope.high=high;
+            }
+
+            $scope.VerifyPassword=function () {
+                $scope.regExp=/(?=.*[A-Z])\w{4,15}/;
+                if($scope.txtPwd.match($scope.regExp))
+                {
+                    $scope.msg="Strong Password";
+                    ShowGrade(1,100,100,0,0);
+                }
+                else
+                {
+                    if($scope.txtPwd.length<4)
+                    {
+                        $scope.msg="Poor Password";
+                        ShowGrade(1,100,100,60,80);
+                    }
+                    else
+                    {
+                        $scope.msg="Weak Password";
+                        ShowGrade(1,100,100,40,80);
+                    }
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <fieldset>
+       <legend>Verify Password</legend>
+       <input type="password" ng-model="txtPwd" ng-keyup="VerifyPassword()">
+       <meter min="{{min}}" max="{{max}}" value="{{value}}" low="{{low}}" high="{{high}}"></meter>
+       <span>{{msg}}</span>
+   </fieldset>
+</body>
+</html>

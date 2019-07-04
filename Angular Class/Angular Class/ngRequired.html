@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <form>
+       <input type="checkbox" ng-model="obj"> Name Required
+       <br>
+       Name <input type="text" name="txtName" ng-model="txtName" ng-required="obj">
+       <button>Submit</button>
+   </form>
+</body>
+</html>

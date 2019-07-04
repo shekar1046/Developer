@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <div ng-init="cars=['Cars/1.jpg','Cars/2.jpg','Cars/3.jpg','Cars/4.jpg','Cars/5.jpg']">
+       <table width="400" border="1" align="center" cellspacing="4" cellpadding="4">
+           <tr>
+               <td>
+                   <img ng-src="{{cars[imageIndex]}}" width="400" height="250" border="1">
+               </td>
+           </tr>
+           <tr align="center">
+               <td>
+                   1 <input min="1" max="5" value="1" type="range" ng-model="imageIndex"> 5
+               </td>
+           </tr>
+       </table>
+   </div>
+</body>
+</html>

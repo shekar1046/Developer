@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="Modules/factoryApp.js"></script>
+    <script>
+        var app = angular.module('DemoApp',['FactoryApp']);
+        app.controller('HomeController',function ($scope, MathFactory) {
+             $scope.shoe={
+                 Id:1,
+                 Name:"Nike Shoe",
+                 Price:54200.42,
+                 Qty:2,
+             };
+             $scope.tv={
+                 Id:2,
+                 Name:"Samsung TV",
+                 Price:43000.53,
+                 Qty:1
+             };
+             $scope.Amount=MathFactory.TotalAmount($scope.shoe.Qty,$scope.shoe.Price);
+             $scope.maxprice=MathFactory.MaxPrice($scope.tv.Price,$scope.shoe.Price);
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+       Total Amount : {{Amount}}
+   <br>
+       Max Price :  {{maxprice}}
+</body>
+</html>

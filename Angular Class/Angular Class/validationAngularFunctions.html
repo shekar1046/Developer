@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[])
+        app.controller('HomeController',function ($scope) {
+                    $scope.users=[
+                        {UserId:'john'},
+                        {UserId:'john12'},
+                        {UserId:'david'},
+                        {UserId:'davidHr'}
+                    ];
+                    $scope.txtName="";
+                    $scope.msg="";
+
+                    $scope.VerifyUserId=function () {
+                        for(var i=0;i<$scope.users.length;i++)
+                        {
+                            if($scope.txtName==$scope.users[i].UserId)
+                            {
+                                $scope.msg="User Id Taken - Try Another";
+                                return;
+                            }
+                            else
+                            {
+                                $scope.msg="Available";
+                            }
+                        }
+                    }
+
+            })
+            </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+      <fieldset>
+          <legend>Register User</legend>
+          <input type="text" ng-model="txtName" ng-keyup="VerifyUserId()">
+          <span>{{msg}}</span>
+      </fieldset>
+</body>
+</html>

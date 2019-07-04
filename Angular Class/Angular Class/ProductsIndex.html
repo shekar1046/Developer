@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script>
+        var app=angular.module('DemoApp',['ngRoute']);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when('/ProductDetails/:id',{
+                    templateUrl:'ProductDetails.html',
+                    controller:'DetailsController'
+                })
+        })
+        app.controller('HomeController',function ($scope) {
+             $scope.products=[
+                 {
+                     Id:1,
+                     Name:'Samsung TV',
+                     Price:45000.56,
+                     Mfd:new Date('2018/02/22'),
+                     Photo:'Images/tv.jpg'
+                 },
+                 {
+                     Id:2,
+                     Name:'Nike Shoe',
+                     Price:4000.56,
+                     Mfd:new Date('2018/07/10'),
+                     Photo:'Images/shoe.jpg'
+                 }
+             ]
+        })
+        app.controller('DetailsController',function ($scope, $routeParams, $route) {
+              $scope.id=$routeParams.id;
+              $scope.routedetails=$route;
+
+              for(var i=0;i<$scope.products.length;i++)
+              {
+                  if($scope.products[i].Id==$scope.id)
+                  {
+                      $scope.name=$scope.products[i].Name;
+                      $scope.price=$scope.products[i].Price;
+                      $scope.mfd=$scope.products[i].Mfd;
+                      $scope.photo=$scope.products[i].Photo;
+                  }
+              }
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <table width="600" border="1" cellspacing="4" cellpadding="5" align="center">
+       <tr height="300">
+           <td width="200">
+               <div ng-repeat="item in products">
+                  <a href="#!ProductDetails/{{item.Id}}"> {{item.Name}} </a>
+               </div>
+           </td>
+           <td>
+               <ng-view></ng-view>
+           </td>
+       </tr>
+   </table>
+</body>
+</html>

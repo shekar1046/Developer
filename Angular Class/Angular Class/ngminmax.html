@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <form name="frmRegister">
+       Your Name :
+       <input type="text" name="txtName" ng-model="txtName" ng-minlength="4" ng-maxlength="15"/>
+       <span ng-if="frmRegister.txtName.$error.minlength">Name too short</span>
+       <span ng-if="frmRegister.txtName.$error.maxlength">Name too long</span>
+   </form>
+</body>
+</html>

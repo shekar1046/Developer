@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <div ng-init="ad='Images/pepsi.jpg'">
+       <img ng-mouseover="ad='Images/rDigital.jpg'" ng-mouseleave="ad='Images/pepsi.jpg'" ng-src="{{ad}}" width="400" height="100">
+       <br>
+       <b>Move mouse pointer on to AD to Change.</b>
+   </div>
+   <div ng-init="bulb='Images/bulboff.png'">
+       <img ng-mousedown="bulb='Images/bulbon.png'" ng-mouseup="bulb='Images/bulboff.png'" ng-src="{{bulb}}" width="100" height="100">
+       <br>
+       <b>Hold Down Mouse Button to Keep Bulb ON.</b>
+   </div>
+   <div>
+       <img ng-mousemove="event=$event" ng-src="Cars/3.jpg" width="300" height="200">
+       <br>
+       X= {{event.clientX}} <br>
+       Y= {{event.clientY}}
+   </div>
+</body>
+</html>

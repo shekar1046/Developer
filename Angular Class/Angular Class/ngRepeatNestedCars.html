@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.cars=[
+                {
+                    CarName:'Audi',
+                    Photo:'Cars/1.jpg',
+                    Likes:0,
+                    Dislikes:0
+                },
+                {
+                    CarName:'Range Rower',
+                    Photo:'Cars/3.jpg',
+                    Likes:0,
+                    Dislikes:0
+                }
+            ];
+            $scope.LikesCounter =function (car) {
+                car.Likes++;
+            }
+            $scope.DislikesCounter=function (car) {
+                car.Dislikes++;
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <table width="500" border="1" align="center" cellspacing="4" cellpadding="4">
+       <tr ng-repeat="car in cars" align="center">
+           <td>
+               <h3>{{car.CarName}}</h3>
+               <div>
+                   <img ng-src="{{car.Photo}}" width="200" height="200">
+               </div>
+               <div>
+                   {{car.Likes}} Like(s)
+                   <span> | </span>
+                   {{car.Dislikes}} Dislike(s)
+               </div>
+               <div>
+                   <a href="" ng-click="LikesCounter(car)">
+                   <img ng-src="Images/like.jpg" width="40" height="40">
+                   </a>
+                   <a href="" ng-click="DislikesCounter(car)">
+                   <img ng-src="Images/Dislike.jpg" width="40" height="40">
+                   </a>
+               </div>
+           </td>
+       </tr>
+   </table>
+</body>
+</html>

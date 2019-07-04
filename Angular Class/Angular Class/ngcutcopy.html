@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+    Your Comments:<br>
+    <textarea ng-init="msg=''" ng-cut="msg='Text Removed and placed on Clipboard'" ng-copy="msg='Text Copied'" ng-paste="msg='Content Inserted..'" rows="4" cols="30">
+
+    </textarea>
+    <br>
+    <div align="center">{{msg}}</div>
+</body>
+</html>

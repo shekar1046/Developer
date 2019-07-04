@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="Modules/CaptchaApp.js"></script>
+
+    <script>
+        var app=angular.module('DemoApp',['CaptchaApp']);
+        app.controller('HomeController',function ($scope, CaptchaService) {
+            $scope.captcha=CaptchaService.Captcha();
+
+            $scope.RefreshClick=function () {
+                $scope.captcha=CaptchaService.Captcha();
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <form>
+    <fieldset>
+        <legend>Login Here</legend>
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text"></dd>
+            <dt>Password</dt>
+            <dd><input type="password"></dd>
+            <dt>Verify Code</dt>
+            <dd>
+                {{captcha}}
+                <br>
+                <button ng-click="RefreshClick()">Refresh</button>
+            </dd>
+        </dl>
+        <br>
+        <button>Login</button>
+    </fieldset>
+    </form>
+</body>
+</html>

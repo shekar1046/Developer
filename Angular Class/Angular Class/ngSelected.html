@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+   <input type="checkbox" ng-model="hyd"> Are you from Hyd ?
+   <select ng-model="lstCities">
+       <option>Delhi</option>
+       <option>Chennai</option>
+       <option ng-disabled="hyd">Hyd</option>
+   </select>
+</body>
+</html>

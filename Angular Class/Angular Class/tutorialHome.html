@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script>
+        var app=angular.module('DemoApp',['ngRoute']);
+        app.config(function ($routeProvider) {
+               $routeProvider
+                   .when('/',{
+                           template:"<h2>Tutorial Home</h2>"
+                   })
+                   .when('/js',{
+                       template:"<h2>Java Script</h2><ol><li>Variables </li><li>Data Types</li></ol>"
+                   })
+                   .when('/ng',{
+                       template:'<h2>Angular JS</h2><ol><li>Directives</li><li>Services</li></ol>'
+                   })
+                   .otherwise({
+                       template:'<h2>Requested Tutorial Not Found</h2>'
+                   })
+        })
+        app.controller('HomeController',function ($scope) {
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <table width="600" align="center" border="1" cellpadding="3" cellspacing="3">
+       <tr align="center">
+           <td colspan="2">Online Tutorial</td>
+       </tr>
+       <tr height="400">
+           <td width="200">
+               <ol>
+                   <li><a href="#!js">Java Script</a></li>
+                   <li><a href="#!ng">Angular JS</a></li>
+               </ol>
+           </td>
+           <td width="400">
+                <ng-view></ng-view>
+           </td>
+       </tr>
+   </table>
+</body>
+</html>

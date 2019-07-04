@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+
+            $scope.backcolor="";
+            $scope.textcolor="";
+            $scope.alignment="";
+
+             $scope.Apply=function () {
+                 $scope.styleObj={
+                     "background-color":$scope.backcolor,
+                     "color":$scope.textcolor,
+                     "text-align":$scope.alignment
+                 }
+             }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <fieldset>
+        <legend>Apply Effects</legend>
+        <dl>
+            <dt>Background Color</dt>
+            <dd>
+                <select ng-model="backcolor">
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                </select>
+            </dd>
+            <dt>Text Color</dt>
+            <dd>
+                <select ng-model="textcolor">
+                    <option value="white">White</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="black">Default</option>
+                </select>
+            </dd>
+            <dt>Alignment</dt>
+            <dd>
+                <input type="radio" name="alignment" value="left" ng-model="alignment"> Left
+                <input type="radio" name="alignment" value="center" ng-model="alignment"> Center
+                <input type="radio" name="alignment" value="right" ng-model="alignment"> Right
+            </dd>
+        </dl>
+        <br>
+        <button ng-click="Apply()">Update Style</button>
+    </fieldset>
+    <br>
+    <div ng-style="styleObj">
+        Welcome to Angular JS
+    </div>
+</body>
+</html>

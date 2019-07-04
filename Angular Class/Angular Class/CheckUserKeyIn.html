@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scripts/angular.js"></script>
+    <script>
+        var app=angular.module('DemoApp',[]);
+        app.controller('HomeController',function ($scope) {
+            $scope.users=[
+                {
+                    UserName:"John"
+                },
+                {
+                    UserName:"John1"
+                },
+                {
+                    UserName:"John_nit"
+                },
+            ];
+            $scope.txtUser="";
+            $scope.msg="";
+            $scope.CheckUser=function () {
+               for(var i=0; i<$scope.users.length; i++)
+               {
+                   if($scope.users[i].UserName==$scope.txtUser)
+                   {
+                       $scope.msg="User Name Taken - Try another";
+                       return;
+                   }
+                   else {
+                       $scope.msg="User Name Available";
+                   }
+               }
+            }
+            $scope.txtPwd="";
+            var regExp=/(?=.*[A-Z])\w{4,15}/;
+            $scope.pwdMsg="";
+
+            function GetGrade(min,max,value,low,high) {
+                $scope.min=min;
+                $scope.max=max;
+                $scope.value=value;
+                $scope.low=low;
+                $scope.high=high;
+            }
+
+
+            $scope.VerifyPassword= function () {
+                if($scope.txtPwd.match(regExp))
+                {
+                    $scope.pwdMsg="Strong Password";
+                    GetGrade(1,100,100,0,0);
+                }
+                else{
+                    if($scope.txtPwd.length<4)
+                    {
+                        $scope.pwdMsg="Poor Password";
+                        GetGrade(1,100,100,60,80);
+                    }
+                    else {
+                        $scope.pwdMsg="Weak Password";
+                        GetGrade(1,100,100,40,80);
+                    }
+                }
+            }
+
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <fieldset>
+       <legend>Register User</legend>
+       <dl>
+           <dt>User Name</dt>
+           <dd><input type="text" ng-keypress="CheckUser()" ng-model="txtUser">
+               <span>{{msg}}</span>
+           </dd>
+           <dt>Password</dt>
+           <dd>
+               <input ng-keyup="VerifyPassword()" type="password" ng-model="txtPwd">
+               <meter min="{{min}}" max="{{max}}" value="{{value}}" low="{{low}}" high="{{high}}"></meter>
+               <span>{{pwdMsg}}</span>
+           </dd>
+       </dl>
+   </fieldset>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script>
+        function myFunction(){
+            var a=100;
+            try{
+                alert('value of variable a is :'+a);
+            }
+            catch(e){
+                alert('Error:'+e.descripton);
+
+            }
+            finally{
+                window.alert('task done');
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="click me" onclick="myFunction()">
+    </body>
+</html>
