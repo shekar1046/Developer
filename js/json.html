@@ -1,0 +1,25 @@
+<body>
+    <script>
+        function f1(){
+            var products=[
+                {
+                    id:1,
+                    Name:"TV",
+                    Price:3400.00
+                },
+                {
+                    id:2,
+                    Name:"Mobile",
+                    Price:17000.00
+
+                }
+            ];
+            function GetDetails(index=0){
+                document.write("id=" +products[index].id + "<br>" + "Name="+ products[index].Name + "<br>" + "Price="+ products[index].Price+ "<br>");
+            }
+            GetDetails(0);
+            GetDetails(1);
+        }
+        f1();
+        </script>
+</body>

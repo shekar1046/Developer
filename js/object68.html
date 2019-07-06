@@ -1,0 +1,47 @@
+<body>
+<script>
+function submitClick(){
+    var productName=document.getElementById("txtName").value;
+    var productPrice=document.getElementById("txtPrice").value;
+    var product={
+        Name: productName,
+        Price: productPrice,
+        Quantity:3,
+        IsInStock:false,
+        shippedTo:["Delhi", "Hyd"],
+        Total:function(){
+            return product.Quantity*product.Price;
+        }
+    }
+    var stock;
+    if(product.IsInStock==true){
+        stock: "Available";
+        
+    }
+    else
+    {
+        stock="out of stock";
+    }
+    document.write("Name=" +product.Name + "<br>" +"price=" +product.Price + "<br>" + "Quanity=" +product.Quantity + "<br>" + "ShippedTo=" + product.shippedTo + "<br>"+ "IsInStock="+ product.IsInStock + "<br>" + "Total Amount="+ product.Total() );
+}
+</script>
+<div>
+    <fieldset>
+        <legend>
+            enter details
+        </legend>
+        <form>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text" id="txtName"></dd>
+            </dl>
+            <dl>
+            <dt>price</dt>
+            <dd><input type="text" id="txtPrice" ></dd>
+            </dl>
+            <br>
+            <input type="button" value="submit" onclick="submitClick()">
+        </form>
+    </fieldset>
+</div>
+</body>
