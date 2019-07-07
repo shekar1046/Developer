@@ -1,1 +1,1 @@
-var app=angular.module("githubViewer", []);
+var app=angular.module("DemoApp", []);

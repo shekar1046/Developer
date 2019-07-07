@@ -1,0 +1,15 @@
+<head>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+
+<form name="frmName">
+    Your Email:
+    <input type="email" ng-model="txtEmail" name="txtEmail">
+    <span ng-show="fromHome.txtEmail.$invalid">
+        invalid Email
+    </span>
+
+</form>
+
+</body>

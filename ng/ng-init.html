@@ -1,0 +1,49 @@
+<head>
+    <script src="scripts/angular.js"></script>
+    <script scr="modules/app.js"></script>
+        
+        
+</head>
+<body ng-app>
+    <div>
+        <dl>
+        <dt ng-init="count=0">Initialize a value</dt>
+        <dd><span ng-click="count=count+1" style="background-color:yellow; width:200px">
+        {{count}} Likes
+        </span>
+    <span ng-click="count=count-1" style="background-color:lime; width: 200 px ">
+        {{count}} dislikes
+
+    </span>
+    </dd>
+    <dt ng-init="Name=John">Initializing</dt>
+    <dd>helloo {{name}}</dd>
+    <dt ng-init="cities=['delhi', 'hyd', 'pune']">initialized an array</dt>
+    <dd>{{cities.toString()}} <br>
+        Toal no.of cities:{{cities.length}}
+    </dd>
+    <dt-ng-init="product={id:1, Name="tv"}">
+        initialize an object
+    </dt>
+    <dd>
+        product Id:{{product.id}} <br>
+        Name: {{product.Name}}
+    </dd>
+    <dt ng-init="products=[{
+        id:1,
+        Name:'tv'
+    },
+    {
+        id:2,
+        Name:shoe
+    }
+    ]">json type</dt>
+   
+    <dd>
+        <pre>
+            {{products|JSON}}
+        </pre>
+    </dd>
+</dl>
+    </div>
+</body>

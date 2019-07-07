@@ -1,0 +1,73 @@
+<head>
+    <style>
+    dt{
+        font-weight: bold;
+    }
+    </style>
+    <script src="scripts/angular.js"></script>
+    <script>
+    var app=angular.module("DemoApp", []);
+    app.controller("HomeController", function($scope){
+        $scope.isResisterVisible=true;
+        $scope.isDetailsVisible=false;
+
+        $scope.Update=function(product){
+            $scope.isResisterVisible=false;
+            $scope.isDetailsVisible=true;
+
+            $scope.id=product.id;
+            $scope.name=product.name;
+            $scope.price=product.price;
+            $scope.mfd=product.mfd;
+            $scope.stock=product.stock;
+            $scope.city=product.city;
+        }
+    });
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <fieldset ng-show="isResisterVisible">
+        <legend>Resister Product</legend>
+       <dl>
+           <dt>product id</dt>
+           <dd><input type="number" ng-model="product.id"></dd>
+           <dt>name</dt>
+           <dd><input type="text" ng-model="product.Name"></dd>
+           <dt>price</dt>
+           <dd><input type="text" ng-model="product.price"></dd>
+           <dt>manufactured</dt>
+           <dd><input type="date" ng-model="product.mfd"></dd>
+           <dt>is in stock</dt>
+           <dd><input type="radio" value="not Available" ng-model="product.stock" name="stock">no</dd>
+           <dd><input type="radio" value="Available" ng-model="product.stock" name="stock">yes</dd>
+           <dt>shipped to</dt>
+           <dd>
+               <select ng-model="product.city">
+                   <option value="1">delhi</option>
+                   <option value="2">hyd</option>
+                   <option value="3">bangalore</option>
+
+               </select>
+           </dd>
+       </dl>
+       <button ng-click="Update(product)">Update</button>
+    </fieldset>
+<fieldset ng-show="isDetailsVisible">
+    <legend>product details</legend>
+    <dl>
+        <dt>product id</dt>
+        <dd>{{id}}</dd>
+        <dt>name</dt>
+        <dd ng-bind="name"></dd>
+        <dt>price</dt>
+        <dd>{{price}}</dd>
+        <dt>manufactured</dt>
+        <dd>{{mfd}}</dd>
+        <dt>isInStock</dt>
+        <dd>{{stock}}</dd>
+        <dt>shipped to</dt>
+        <dd>{{city}}</dd>
+    </dl>
+    <a href="modecont.html">Register new</a>
+</fieldset>
+</body>

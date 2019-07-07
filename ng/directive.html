@@ -1,0 +1,17 @@
+<head>
+<script src="scripts/angular.js"></script>
+<script src="modules/app.js"></script>
+</head>
+<body ng-app>
+
+your name:
+<input type="text" ng-model="uname">
+<br>
+<dl>
+    <dt>using - operator</dt>
+    <dd ng-bind="uname"></dd>
+    <dd ng_bind="uname"></dd>
+    <dd ng:bind="uname"></dd>
+    <dd data-ng-bind="uname"></dd>
+</dl>
+</body>

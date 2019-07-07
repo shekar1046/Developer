@@ -1,0 +1,12 @@
+<head>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+    First name:
+    <input type="text" ng-model="fname"> <br><br>
+    Last name:
+    <input type="text" ng-model="lname">
+    <br>
+    <span ng-bind-template="Hello ! {{fname}} {{lname}}, how are you?"></span>
+
+</body>

@@ -1,0 +1,43 @@
+<head>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app>
+    <input type="checkbox" ng-model="showads"> show Ads
+    <dialog ng-open="show ads">
+        <img src="images/pepsi.jpeg" width="400" height="100">
+
+    </dialog>
+    <table width="600" border="1" align="center">
+        <tr height="400">
+            <td width="200">
+                <ul>
+                    <li>
+                        <input type="checkbox" ng-model="ie">javascript
+                    </li>
+                    <li>
+                        <input type="checkbox" ng-model="ng">Angularjs
+                    </li>
+                </ul>
+                
+            </td>
+            <td width="400">
+                <details ng-open="js">
+                    <summary>javascript</summary>
+                    <ol>
+                        <li>variables</li>
+                        <li>datatypes</li>
+                    </ol>
+                </details>
+                <details ng-open="ng">
+                    <summary>Angularjs</summary>
+                    <ol>
+                        <li>directives</li>
+                        <li>services</li>
+                    </ol>
+                </details>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
