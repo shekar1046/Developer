@@ -1,0 +1,22 @@
+<head>
+    <script src="scripts/angular.js"></script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+
+    <div ng-init="msg='Welcome to Angularjs'">
+        {{msg | lowercase}}
+    </div>
+    <script>
+        var app=angular.module("DemoApp", []);
+        app.controller("HomeController", function($scope){
+            $scope. price=45000;
+
+        });
+    
+  
+</script>
+<div>
+        price:{{price|number:2}}
+
+</div>
+</body>
